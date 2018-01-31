@@ -57,15 +57,66 @@ public class CSharpExample : MonoBehaviour {
 			// This also shows how to create an "anonymous delegate". 
 			// That's one not declared as a seperate function.
 			// These are more useful if you have a significant amount of callbacks:
-			element.onmousedown = delegate(MouseEvent mouseEvent) {
-				
-				// mouseEvent.target is the element that actually got clicked
-				// Note that it could be e.g an SVG element. So, htmlTarget
-				// is it cast as a HtmlElement.
-				mouseEvent.htmlTarget.innerHTML="You clicked this!";
-				
+//			element.onmousedown = delegate(MouseEvent mouseEvent) {
+//				
+//				// mouseEvent.target is the element that actually got clicked
+//				// Note that it could be e.g an SVG element. So, htmlTarget
+//				// is it cast as a HtmlElement.
+//				mouseEvent.htmlTarget.innerHTML="You clicked this!";
+//
+//				print("Button clicked this");
+//				print(mouseEvent.htmlTarget.textContent);
+//			};
+
+
+//			element.onmouseover = delegate(MouseEvent mouseEvent) {
+//
+//				mouseEvent.htmlTarget.innerHTML="You clicked this!";
+//
+//				print("Button clicked onmouseover");
+//			};
+//
+//			element.onmouseout = delegate(MouseEvent mouseEvent) {
+//
+//				print("Button clicked onmouseout");
+//			};
+//
+//			element.onmouseup = delegate(MouseEvent mouseEvent) {
+//
+//				print("Button clicked onmouseup");
+//			};
+//
+//			element.onmousemove = delegate(MouseEvent mouseEvent) {
+//
+//				print("Button clicked onmousemove");
+//			};
+//
+//			element.onclick = delegate(MouseEvent mouseEvent) {
+//
+//				print("Button clicked onclick");
+//			};
+//
+//			element.onmousedown = delegate(MouseEvent mouseEvent) {
+//
+//				print("Button clicked onmousedown");
+//			};
+
+			element.ontouchstart = delegate(TouchEvent touchEvent) {
+
+				print("Button clicked ontouchstart");
 			};
-			
+
+			element.ontouchmove = delegate(TouchEvent touchEvent) {
+
+				print("Button clicked ontouchmove");
+			};
+
+//			element.ontouchend = delegate(TouchEvent touchEvent) {
+//
+//				print("Button clicked ontouchend");
+//			};
+
+			element.ontouchend = OnMyTouchDown;
 		}
 		
 	}
@@ -118,6 +169,11 @@ public class CSharpExample : MonoBehaviour {
 		// (Or use the standard attribute API's)
 		Debug.Log("Its 'category' attribute is "+target["category"]);
 		
+	}
+
+	private void OnMyTouchDown(TouchEvent touchEvent) {
+
+		Debug.Log("Button clicked ontouchend !!!!!!");
 	}
 	
 }

@@ -182,7 +182,33 @@ namespace Dom{
 				addEventListener("change",new EventListener<Dom.Event>(value));
 			}
 		}
-		
+
+		public Action<TouchEvent> ontouchstart{
+			get{
+				return GetFirstDelegate<Action<TouchEvent>>("touchstart");
+			}
+			set{
+				addEventListener("touchstart",new EventListener<TouchEvent>(value));
+			}
+		}
+
+		public Action<TouchEvent> ontouchmove{
+			get{
+				return GetFirstDelegate<Action<TouchEvent>>("touchmove");
+			}
+			set{
+				addEventListener("touchmove",new EventListener<TouchEvent>(value));
+			}
+		}
+
+		public Action<TouchEvent> ontouchend{
+			get{
+				return GetFirstDelegate<Action<TouchEvent>>("touchend");
+			}
+			set{
+				addEventListener("touchend",new EventListener<TouchEvent>(value));
+			}
+		}
 	}
 	
 }

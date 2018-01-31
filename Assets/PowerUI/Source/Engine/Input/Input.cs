@@ -679,6 +679,7 @@ namespace PowerUI{
 			int touchCount=UnityEngine.Input.touchCount;
 			
 			if(touchCount>0){
+				Debug.Log ("HiInput TouchCount: " + touchCount.ToString());
 				
 				// For each one..
 				for(int i=0;i<touchCount;i++){

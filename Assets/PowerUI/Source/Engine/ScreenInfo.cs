@@ -68,7 +68,10 @@ namespace PowerUI{
 		/// <summary>The device's DPI / ScreenInfo.CssPixelDPI.</summary>
 		public static float DevicePixelRatio{
 			get{
+				Debug.Log (string.Format("DevicePixelRatio  ScreenInfo.Dpi: {0}, ScreenInfo.CssPixelDpi: {1}, DevicePixelRatio: {2}",
+					ScreenInfo.Dpi, ScreenInfo.CssPixelDpi, (float)ScreenInfo.Dpi / (float)ScreenInfo.CssPixelDpi));
 				return (float)ScreenInfo.Dpi / (float)ScreenInfo.CssPixelDpi;
+
 			}
 		}
 		
