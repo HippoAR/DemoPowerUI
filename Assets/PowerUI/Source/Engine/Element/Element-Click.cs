@@ -14,6 +14,7 @@ using Css;
 using System.Collections;
 using System.Collections.Generic;
 using Dom;
+using UnityEngine;
 
 
 namespace PowerUI{
@@ -63,6 +64,8 @@ namespace PowerUI{
 		
 		/// <summary>Clicks this element (mousedown and a mouseup).
 		public void click(){
+
+			Debug.Log ("MyClick click");
 			
 			// Coords:
 			int midX=(int)style.Computed.GetMidpointX();
@@ -80,6 +83,7 @@ namespace PowerUI{
 			}
 			
 		}
+
 		
 	}
 	

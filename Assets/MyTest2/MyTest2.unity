@@ -336,15 +336,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ed48e7a9942e74e9dcb32e546fdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HtmlFile: {fileID: 4900000, guid: 4196989a309474155b82f8046bdb14e8, type: 3}
+  HtmlFile: {fileID: 4900000, guid: 53299b0f99da94908a617d4bad441cf2, type: 3}
   Url: 
   WatchForChanges: 0
   LengthScale: 1
-  AutomaticallyHandleDpi: 1
+  AutomaticallyHandleDpi: 0
   customWidthInMeter: 1
   customRatio: 2
   InputEnabled: 1
-  PixelWidth: 400
+  PixelWidth: 200
   AlwaysFaceTheCamera: 0
   PixelPerfect: 0
   Expiry: 0

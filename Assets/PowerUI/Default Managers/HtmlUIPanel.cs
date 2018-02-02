@@ -53,7 +53,7 @@ namespace PowerUI{
 			UnityEngine.UI.RawImage img=GetComponent<UnityEngine.UI.RawImage>();
 			
 			// Generate a new UI:
-			HtmlUI=new FlatWorldUI("HtmlContent");
+			HtmlUI=new FlatWorldUI("HtmlContent", 100, 100);
 			
 			// Get dimensions:
 			RectTransform dimensions=GetComponent<RectTransform>();

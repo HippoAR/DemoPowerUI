@@ -38,7 +38,7 @@ body{
 	<div onmousedown='elementByID' class='padded'>
 		Click here to affect an element by its ID.
 	</div>
-	<div touch='styleMe' class='padded'>
+	<div id='style_me' onclick='styleMe' class='padded'>
 		The style of this element changes when you click me.
 	</div>
 	<div touchmove='animateMe' class='padded'>
@@ -56,6 +56,7 @@ body{
 </div>
 
 <script type='text/nitro'>
+
 
 /*
 --- This version of Nitro is now depreciated ---
@@ -76,7 +77,7 @@ function simpleNitro(e:UIEvent){ // <- Notice the :type here. This generally mak
 	
 	// Let's rewrite what the element says:
 	e.htmlTarget.innerHTML="Check out the console!";
-	
+
 }
 
 
@@ -141,6 +142,8 @@ function elementByID(e:UIEvent){
 	// Getting an element by it's ID.
 	// Making multiple changes? Store it in a variable for the best performance:
 	var element=((document.getElementById("nitro_title")):HtmlElement);
+
+	//(document.getElementById("style_me")).click();
 	
 	// Update innerHTML:
 	element.innerHTML="I wonder what changed?";
@@ -150,6 +153,8 @@ function elementByID(e:UIEvent){
 	
 }
 
+
+
 // Dropdown Nitro:
 function dropdownChange(){
 	
@@ -157,8 +162,21 @@ function dropdownChange(){
 	
 }
 
+function saySomethingOut(){
+
+	console.log("Hello, Let's Say Something.");
+
+}
+
 
 // Anything you'd like to run straight away just goes outside any functions:
 console.log("Hello! This is always called when the script is loaded.");
+
+setTimeout(saySomethingOut,1000);
+
+saySomethingOut();
+
+
+
 
 </script>
