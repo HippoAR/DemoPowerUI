@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>Test3</title> 
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+	height:100%;
+}
+
+.padded{
+	padding:20px;
+}
+
+body{
+	margin:10px;
+	height:100%:
+}
+
+div {
+	width: 200px;
+	height:200px;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+	<a_model id='my_a_model'></a_model>
+
+
+	<div onmousedown='fuc_bigger' style="width: 200px; background-color: green;">
+		<h1 id='btn_bigger'> Bigger <h1>
+	</div>
+
+	<div onmousedown='fuc_color' style="width: 200px; background-color: blue;">
+		<h1 id='btn_color'> Color <h1>
+	</div>
+
+	<div onmousedown='fuc_left' style="width: 200px; background-color: red;">
+		<h1 id='btn_left'> Left <h1>
+	</div>
+
+	<div onmousedown='fuc_right' style="width: 200px; background-color: black;">
+		<li id='btn_right'> Right <h1></li>
+	</div>
+
+</body>
+
+<script type='text/nitro'>
+
+function fuc_bigger(e:UIEvent){
+	
+	// Let's make the font go green:
+	//e.htmlTarget.style.color="#00ff00";
+
+	var element=((document.getElementById("my_a_model")):HtmlElement);
+	element.scale(1.1f);
+}
+
+function fuc_color(e:UIEvent){
+	
+	// Let's make the font go green:
+	//e.htmlTarget.style.color="#00ff00";
+
+	var element=((document.getElementById("my_a_model")):HtmlElement);
+	element.changeColor(element.getRandomValue(), element.getRandomValue(), element.getRandomValue(), 1f);
+
+}
+
+function fuc_left(e:UIEvent){
+	
+	// Let's make the font go green:
+	//e.htmlTarget.style.color="#00ff00";
+	var element=((document.getElementById("my_a_model")):HtmlElement);
+	element.move(-0.1f, 0f, 0f);
+}
+
+function fuc_right(e:UIEvent){
+	
+	// Let's make the font go green:
+	//e.htmlTarget.style.color="#00ff00";
+
+	var element=((document.getElementById("my_a_model")):HtmlElement);
+	element.move(0.1f, 0f, 0f);
+}
+
+</script>
+
+
+</html>

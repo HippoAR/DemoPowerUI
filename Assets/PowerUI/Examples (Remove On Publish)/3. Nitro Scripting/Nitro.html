@@ -41,7 +41,7 @@ body{
 	<div id='style_me' onclick='styleMe' class='padded'>
 		The style of this element changes when you click me.
 	</div>
-	<div touchmove='animateMe' class='padded'>
+	<div onclick='animateMe' class='padded'>
 		I animate when you click me.
 	</div>
 	<div onmousedown='runGameCode' class='padded'>
@@ -52,6 +52,8 @@ body{
 		<option value='ChangeMe'>Change me</option>
 		<option value='ToThis'>To this!</option>
 	</select>
+
+	<a_model id='my_a_model'>Hi, This is a_model</a_model>
 	
 </div>
 
@@ -86,7 +88,9 @@ function styleMe(e:UIEvent){
 	
 	// Let's make the font go green:
 	e.htmlTarget.style.color="#00ff00";
-	
+
+	var element=((document.getElementById("my_a_model")):HtmlElement);
+	element.move(10f, 0f, 0f);
 }
 
 
