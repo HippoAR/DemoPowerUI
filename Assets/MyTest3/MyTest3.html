@@ -20,7 +20,7 @@ body{
 }
 
 div {
-	width: 200px;
+	width: 20px;
 	height:200px;
 }
 
@@ -35,19 +35,19 @@ div {
 
 
 	<div onmousedown='fuc_bigger' style="width: 200px; background-color: green;">
-		<h1 id='btn_bigger'> Bigger <h1>
+		<h1 id='btn_bigger'> Bigger </h1>
 	</div>
 
 	<div onmousedown='fuc_color' style="width: 200px; background-color: blue;">
-		<h1 id='btn_color'> Color <h1>
+		<h1 id='btn_color'> Color </h1>
 	</div>
 
 	<div onmousedown='fuc_left' style="width: 200px; background-color: red;">
-		<h1 id='btn_left'> Left <h1>
+		<h1 id='btn_left'> Left </h1>
 	</div>
 
 	<div onmousedown='fuc_right' style="width: 200px; background-color: black;">
-		<li id='btn_right'> Right <h1></li>
+		<h1 id='btn_right'> Right </h1>
 	</div>
 
 </body>
@@ -77,8 +77,8 @@ function fuc_left(e:UIEvent){
 	
 	// Let's make the font go green:
 	//e.htmlTarget.style.color="#00ff00";
-	var element=((document.getElementById("my_a_model")):HtmlElement);
-	element.move(-0.1f, 0f, 0f);
+	var element =((document.getElementById("my_a_model")):HtmlElement);
+	element.move(-5f, 0f, 0f, 1f);
 }
 
 function fuc_right(e:UIEvent){
@@ -87,7 +87,7 @@ function fuc_right(e:UIEvent){
 	//e.htmlTarget.style.color="#00ff00";
 
 	var element=((document.getElementById("my_a_model")):HtmlElement);
-	element.move(0.1f, 0f, 0f);
+	element.move(5f, 0f, 0f, 1f);
 }
 
 </script>

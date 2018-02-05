@@ -10,6 +10,7 @@
 //--------------------------------------
 using Dom;
 using UnityEngine;
+using System.Collections;
 
 namespace PowerUI{
 	
@@ -22,23 +23,29 @@ namespace PowerUI{
 
 		GameObject go;
 
+		string goName = "phantom";
+
+		ModelControlScript modelControl;
+
 		public override void OnTagLoaded(){
 			string innterName =htmlDocument.innerText;
 
-			go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-			go.name = "a_model";
+			//go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			go = GameObject.Instantiate (Resources.Load (goName)) as GameObject;
+			go.name = goName;
 			go.layer = LayerMask.NameToLayer ("PowerUI");
-
+			modelControl = go.AddComponent<ModelControlScript> ();
+			go.transform.parent = GameObject.Find ("ModelContainer").transform;
 			Debug.Log ("HtmlA1Element Loaded");
-			//go.transform.parent = GameObject.Find ("Container").transform;
+
 		}
 
-		public override void move(float x, float y, float z) {
+		public override void move(float x, float y, float z, float duration) {
 			if (go == null)
 				return;
-			go.transform.position += new Vector3(x, y, z);
+			Vector3 targetPos = new Vector3(x, y, z);
+			modelControl.startMoveTo (targetPos, duration);
 			Debug.Log ("a_model move");
-
 		}
 
 		public override void changeColor(float r, float g, float b, float a) {
@@ -59,7 +66,7 @@ namespace PowerUI{
 
 	public partial class HtmlElement{
 
-		public virtual void move(float x, float y, float z) {
+		public virtual void move(float x, float y, float z, float duration) {
 
 		}
 
