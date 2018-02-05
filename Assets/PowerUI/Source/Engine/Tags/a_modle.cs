@@ -11,6 +11,7 @@
 using Dom;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace PowerUI{
 	
@@ -23,9 +24,11 @@ namespace PowerUI{
 
 		GameObject go;
 
-		string goName = "phantom";
+		string goName = "micro_knight"; // "phantom";
 
 		ModelControlScript modelControl;
+
+		string[] animArray = {"Attack", "Block", "Die", "GetHitFront", "GetHitLeft", "GetHitRight", "IdleCombat", "Laugh", "Panic", "Talk", "Walk"};
 
 		public override void OnTagLoaded(){
 			string innterName =htmlDocument.innerText;
@@ -33,10 +36,9 @@ namespace PowerUI{
 			//go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 			go = GameObject.Instantiate (Resources.Load (goName)) as GameObject;
 			go.name = goName;
-			go.layer = LayerMask.NameToLayer ("PowerUI");
+			ChangeLayer (go, "PowerUI");
 			modelControl = go.AddComponent<ModelControlScript> ();
 			go.transform.parent = GameObject.Find ("ModelContainer").transform;
-			Debug.Log ("HtmlA1Element Loaded");
 
 		}
 
@@ -45,7 +47,6 @@ namespace PowerUI{
 				return;
 			Vector3 targetPos = new Vector3(x, y, z);
 			modelControl.startMoveTo (targetPos, duration);
-			Debug.Log ("a_model move");
 		}
 
 		public override void changeColor(float r, float g, float b, float a) {
@@ -60,6 +61,24 @@ namespace PowerUI{
 			if (go == null)
 				return;
 			go.transform.localScale = go.transform.localScale * factor;
+		}
+
+		private void ChangeLayer(GameObject obj, string layerName) {
+			for (int i = 0; i < obj.transform.childCount; i++) {
+				obj.transform.GetChild (i).gameObject.layer = LayerMask.NameToLayer (layerName);
+			}
+		}
+
+		public void playAnimation(string name) {
+			if (name == "") {
+				name = animArray[Random.Range (0, animArray.Length)];
+			}
+			go.GetComponent<Animator> ().Play (name, -1, 0f);
+		}
+
+		public void rotate() {
+			Debug.Log ("start rotate");
+			modelControl.startRotate ();
 		}
 	}
 
